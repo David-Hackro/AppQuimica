@@ -1,5 +1,6 @@
 package pue.mtz.pau.appquimica.Views;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,7 +16,7 @@ import android.view.MenuItem;
 
 import pue.mtz.pau.appquimica.R;
 
-public class MainActivity extends AppCompatActivity
+public class MainActivityImpl extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -83,17 +84,17 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            startActivity(new Intent(MainActivityImpl.this,TopicsImpl.class));
         } else if (id == R.id.nav_gallery) {
-
+            startActivity(new Intent(MainActivityImpl.this,TopicsImpl.class));
         } else if (id == R.id.nav_slideshow) {
-
+            startActivity(new Intent(MainActivityImpl.this,TopicsImpl.class));
         } else if (id == R.id.nav_manage) {
-
+            startActivity(new Intent(MainActivityImpl.this,TopicsImpl.class));
         } else if (id == R.id.nav_share) {
-
+            startActivity(new Intent(MainActivityImpl.this,TopicsImpl.class));
         } else if (id == R.id.nav_send) {
-
+            startActivity(new Intent(MainActivityImpl.this,TopicsImpl.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
