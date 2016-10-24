@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ProgressBar;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import pue.mtz.pau.appquimica.Interfaces.Presenters.TopicsPresenter;
 import pue.mtz.pau.appquimica.Models.Ingredient;
 import pue.mtz.pau.appquimica.ExpandibleList.Recipe;
 import pue.mtz.pau.appquimica.Interfaces.Views.TopicsView;
+import pue.mtz.pau.appquimica.Models.ListTopic;
 import pue.mtz.pau.appquimica.Models.Topic;
 import pue.mtz.pau.appquimica.Models.Topics;
 import pue.mtz.pau.appquimica.Presenters.TopicsPresenterImpl;
@@ -60,8 +62,15 @@ public class TopicsImpl extends AppCompatActivity implements TopicsView{
     }
 
     @Override
-    public void initRecycler(Topics persons) {
-        //String name, String icon, String description
+    public void initRecycler(Topics topicss) {
+        List<Recipe> recipes = new ArrayList<Recipe>();
+
+        for (ListTopic t : topicss.getListTopics())
+        {
+            recipes.add(new Recipe(t.getNameTopic(),t.getTopics()));
+        }
+
+/*
         Topic field1 = new Topic("calculo","calculo");
         Topic field2 = new Topic("aritmetica","aritmetica");
         Topic field3 = new Topic("fisica","fisica");
@@ -77,7 +86,7 @@ public class TopicsImpl extends AppCompatActivity implements TopicsView{
         Recipe quesadilla = new Recipe("FISICA",Arrays.asList(field1,field2,field3,field4,field5));
 
 
-        final List<Recipe> recipes = Arrays.asList(taco, quesadilla);
+        final List<Recipe> recipes = Arrays.asList(taco, quesadilla);*/
 
         //mRecyclerView = (RecyclerView) findViewById(R.id.RecyclerView);
 

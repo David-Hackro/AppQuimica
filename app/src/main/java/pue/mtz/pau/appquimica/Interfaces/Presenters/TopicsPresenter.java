@@ -13,6 +13,6 @@ public interface TopicsPresenter {
 
 
 
-    void initRecycler(Topics persons);
+    void initRecycler(Topics topics);
     void loadListPerson();
 }
