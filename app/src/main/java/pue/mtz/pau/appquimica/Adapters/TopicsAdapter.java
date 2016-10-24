@@ -1,91 +1,74 @@
 package pue.mtz.pau.appquimica.Adapters;
 
-import android.support.v7.widget.RecyclerView;
+
+import android.content.Context;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
+import com.bignerdranch.expandablerecyclerview.Adapter.ExpandableRecyclerAdapter;
+import com.bignerdranch.expandablerecyclerview.Model.ParentListItem;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import pue.mtz.pau.appquimica.ExpandibleList.IngredientViewHolder;
+import pue.mtz.pau.appquimica.ExpandibleList.Recipe;
+import pue.mtz.pau.appquimica.ExpandibleList.RecipeViewHolder;
 import pue.mtz.pau.appquimica.Models.Topic;
 import pue.mtz.pau.appquimica.R;
 
 /**
- * Created by david on 21/10/16.
+ * Created by david on 24/10/16.
  */
 
-public class TopicsAdapter extends  RecyclerView.Adapter<TopicsAdapter.ViewHolder> implements View.OnClickListener{
+public class TopicsAdapter extends ExpandableRecyclerAdapter<RecipeViewHolder, IngredientViewHolder> {
 
-    private List<Topic> listTopics;
-    private int itemLayout;
+    private LayoutInflater mInflator;
 
-
-    public TopicsAdapter(int itemLayout) {
-        this.itemLayout = itemLayout;
+    public TopicsAdapter(Context context, @NonNull List<? extends ParentListItem> parentItemList) {
+        super(parentItemList);
+        mInflator = LayoutInflater.from(context);
     }
 
-    public void setListTopics(List<Topic> listTopics) {
-        this.listTopics = listTopics;
-        notifyDataSetChanged();
+    // onCreate ...
+    @Override
+    public RecipeViewHolder onCreateParentViewHolder(ViewGroup parentViewGroup) {
+        View recipeView = mInflator.inflate(R.layout.recipe_view, parentViewGroup, false);
+        return new RecipeViewHolder(recipeView);
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(itemLayout,parent,false);
-        v.setOnClickListener(this);
-        return new ViewHolder(v);
+    public IngredientViewHolder onCreateChildViewHolder(ViewGroup childViewGroup) {
+        View ingredientView = mInflator.inflate(R.layout.ingredient_view, childViewGroup, false);
+        return new IngredientViewHolder(ingredientView);
+    }
+
+    // onBind ...
+    @Override
+    public void onBindParentViewHolder(RecipeViewHolder recipeViewHolder, int position, ParentListItem parentListItem) {
+        Recipe recipe = (Recipe) parentListItem;
+
+        recipeViewHolder.bind(recipe);
+
+
+
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        final Topic item = listTopics.get(position);
-        holder.itemView.setTag(item);
-        holder.name.setText(item.getName());
-        holder.description.setText(item.getDescription());
+    public void onBindChildViewHolder(IngredientViewHolder ingredientViewHolder, int position, Object childListItem) {
+        final Topic ingredient = (Topic) childListItem;
+        ingredientViewHolder.bind(ingredient);
+
+        ingredientViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.e(" ************ ",ingredient.getName());
+            }
+        });
+
+
+
+
+
 
     }
-
-    @Override
-    public int getItemCount() {
-        if (listTopics != null)
-            return listTopics.size();
-        else
-            return 0;
-    }
-
-    @Override
-    public void onClick(View view) {
-
-    }
-
-
-    public void add(Topic item, int position) {
-        listTopics.add(position, item);
-        //notifyItemInserted(position);
-
-    }
-
-    public void remove(Topic item) {
-        int position = listTopics.indexOf(item);
-        listTopics.remove(position);
-        //notifyItemRemoved(position);
-        notifyDataSetChanged();
-    }
-
-
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-        @BindView(R.id.card_topic_name)
-        TextView name;
-        @BindView(R.id.card_topic_description)
-        TextView description;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this,itemView);
-        }
-    }
-
 }
