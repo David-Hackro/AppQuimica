@@ -26,6 +26,6 @@ public class IngredientViewHolder extends ChildViewHolder {
     }
 
     public void bind(@NonNull Topic ingredient) {
-        mIngredientTextView.setText(ingredient.getName());
+        mIngredientTextView.setText(ingredient.getNameTopic());
     }
 }

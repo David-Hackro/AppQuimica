@@ -1,31 +1,62 @@
-package pue.mtz.pau.appquimica.Models;
 
-/**
- * Created by david on 21/10/16.
- */
+package pue.mtz.pau.appquimica.Models;
 
 public class Topic {
 
+    private String idTopic;
+    private String nameTopic;
 
-    private String name;
-    private String icon;
-    private String description;
-
-    public Topic(String name, String icon, String description) {
-        this.name = name;
-        this.icon = icon;
-        this.description = description;
+    /**
+     * No args constructor for use in serialization
+     * 
+     */
+    public Topic() {
     }
 
-    public String getName() {
-        return name;
+    /**
+     * 
+     * @param nameTopic
+     * @param idTopic
+     */
+    public Topic(String idTopic, String nameTopic) {
+        this.idTopic = idTopic;
+        this.nameTopic = nameTopic;
     }
 
-    public String getIcon() {
-        return icon;
+    /**
+     * 
+     * @return
+     *     The idTopic
+     */
+    public String getIdTopic() {
+        return idTopic;
     }
 
-    public String getDescription() {
-        return description;
+    /**
+     * 
+     * @param idTopic
+     *     The id_topic
+     */
+    public void setIdTopic(String idTopic) {
+        this.idTopic = idTopic;
     }
+
+    /**
+     * 
+     * @return
+     *     The nameTopic
+     */
+    public String getNameTopic() {
+        return nameTopic;
+    }
+
+    /**
+     * 
+     * @param nameTopic
+     *     The name_topic
+     */
+    public void setNameTopic(String nameTopic) {
+        this.nameTopic = nameTopic;
+    }
+
 }

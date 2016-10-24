@@ -7,6 +7,7 @@ import pue.mtz.pau.appquimica.Interfaces.Interactors.TopicsInteractor;
 import pue.mtz.pau.appquimica.Interfaces.Presenters.TopicsPresenter;
 import pue.mtz.pau.appquimica.Interfaces.Views.TopicsView;
 import pue.mtz.pau.appquimica.Models.Topic;
+import pue.mtz.pau.appquimica.Models.Topics;
 
 /**
  * Created by david on 21/10/16.
@@ -24,7 +25,7 @@ public class TopicsPresenterImpl implements TopicsPresenter {
     }
 
     @Override
-    public void initRecycler(List<Topic> topics) {
+    public void initRecycler(Topics topics) {
         view.initRecycler(topics);
     }
 

@@ -5,7 +5,9 @@ import java.util.List;
 
 import pue.mtz.pau.appquimica.Interfaces.Interactors.TopicsInteractor;
 import pue.mtz.pau.appquimica.Interfaces.Presenters.TopicsPresenter;
+import pue.mtz.pau.appquimica.Models.ListTopic;
 import pue.mtz.pau.appquimica.Models.Topic;
+import pue.mtz.pau.appquimica.Models.Topics;
 
 /**
  * Created by david on 21/10/16.
@@ -21,10 +23,10 @@ public class TopicsInteractorImpl implements TopicsInteractor {
 
     @Override
     public void initRecycler() {
-        List<Topic> personas = new ArrayList<Topic>();
-        //String name, String icon, String description
-        personas.add(new Topic("david","example","esta es la descripcion"));
 
-        presenter.initRecycler(personas);
+        Topics listTopics = new Topics();
+
+
+        presenter.initRecycler(listTopics);
     }
 }

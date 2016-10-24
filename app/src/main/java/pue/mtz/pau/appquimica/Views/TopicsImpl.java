@@ -16,6 +16,7 @@ import pue.mtz.pau.appquimica.Models.Ingredient;
 import pue.mtz.pau.appquimica.ExpandibleList.Recipe;
 import pue.mtz.pau.appquimica.Interfaces.Views.TopicsView;
 import pue.mtz.pau.appquimica.Models.Topic;
+import pue.mtz.pau.appquimica.Models.Topics;
 import pue.mtz.pau.appquimica.R;
 
 public class TopicsImpl extends AppCompatActivity implements TopicsView{
@@ -36,6 +37,7 @@ public class TopicsImpl extends AppCompatActivity implements TopicsView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topics);
         ButterKnife.bind(this);
+
   /*      ButterKnife.bind(this);
 
         presenter = new TopicsPresenterImpl(this);
@@ -62,15 +64,15 @@ public class TopicsImpl extends AppCompatActivity implements TopicsView{
 }
 */
         //String name, String icon, String description
-        Topic field1 = new Topic("calculo","","");
-        Topic field2 = new Topic("aritmetica","","");
-        Topic field3 = new Topic("fisica","","");
-        Topic field4 = new Topic("calculo","","");
-        Topic field5 = new Topic("aritmetica","","");
-        Topic field6 = new Topic("fisica","","");
-        Topic field7 = new Topic("calculo","","");
-        Topic field8 = new Topic("aritmetica","","");
-        Topic field9 = new Topic("fisica","","");
+        Topic field1 = new Topic("calculo","calculo");
+        Topic field2 = new Topic("aritmetica","aritmetica");
+        Topic field3 = new Topic("fisica","fisica");
+        Topic field4 = new Topic("calculo","calculo");
+        Topic field5 = new Topic("aritmetica","aritmetica");
+        Topic field6 = new Topic("fisica","fisica");
+        Topic field7 = new Topic("calculo","calculo");
+        Topic field8 = new Topic("aritmetica","aritmetica");
+        Topic field9 = new Topic("fisica","fisica");
 
 
         Recipe taco = new Recipe("MATEMATICAS", Arrays.asList(field1,field2,field3,field4));
@@ -119,7 +121,7 @@ public class TopicsImpl extends AppCompatActivity implements TopicsView{
     }
 
     @Override
-    public void initRecycler(List<Topic> persons) {
+    public void initRecycler(Topics persons) {
 
     }
 }

@@ -61,7 +61,7 @@ public class TopicsAdapter extends ExpandableRecyclerAdapter<RecipeViewHolder, I
         ingredientViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e(" ************ ",ingredient.getName());
+                Log.e(" ************ ",ingredient.getNameTopic());
             }
         });
 
